@@ -1,0 +1,24 @@
+
+
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">Employee name</label>
+                <input type="text" class="form-control" formControlName="EmployeeName" #EmployeeName/>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Position</label>
+                <select class="form-control" formControlName = "EmployeePosition" #employeePosition>
+                        <option disabled>Select position</option>
+                        <option></option>
+                        <option *ngFor="let posi of emPost">{{posi}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Age</label>
+                <input type="number" class="form-control"/>
+            </div>
+        </form>
+    </div>
+</div>
