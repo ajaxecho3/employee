@@ -8,6 +8,8 @@ import { EmployeeGetComponent } from './employee-get/employee-get.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeesService } from './employees.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     SlimLoadingBarModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EmployeesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

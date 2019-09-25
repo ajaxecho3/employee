@@ -7,17 +7,38 @@
                 <label class="col-md-4">Employee name</label>
                 <input type="text" class="form-control" formControlName="EmployeeName" #EmployeeName/>
             </div>
+            <div *ngIf="angForm.controls['EmployeeName'].invalid && (angForm.controls['EmployeeName'].dirty || angForm.controls['EmployeeName'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['EmployeeName'].errors.required">
+                Employee name is required.
+              </div>
+            </div>
             <div class="form-group">
                 <label class="col-md-4">Position</label>
-                <select class="form-control" formControlName = "EmployeePosition" #employeePosition>
+                <select class="form-control" formControlName = "EmployeePosition" #EmployeePosition>
                         <option disabled>Select position</option>
                         <option></option>
                         <option *ngFor="let posi of emPost">{{posi}}</option>
                 </select>
             </div>
+            <div *ngIf="angForm.controls['EmployeePosition'].invalid && (angForm.controls['EmployeePosition'].dirty || angForm.controls['EmployeePosition'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['EmployeePosition'].errors.required">
+                Employee position is required.
+              </div>
+            </div>
             <div class="form-group">
                 <label class="col-md-4">Age</label>
-                <input type="number" class="form-control"/>
+                <input type="number" class="form-control" formControlName="EmployeeAge" #EmployeeAge/>
+            </div>
+            <div *ngIf="angForm.controls['EmployeeAge'].invalid && (angForm.controls['EmployeeAge'].dirty || angForm.controls['EmployeeAge'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['EmployeeAge'].errors.required">
+                Employee age is required
+              </div>
+            </div>
+            <div class="form-group">
+              <button (click) = "addEmployee(EmployeeName.value, EmployeePosition.value, EmployeeAge.value)" type="submit" class="btn btn-primary"
+              [disabled]="angForm.pristine || angForm.invalid">
+                Add employee
+              </button>
             </div>
         </form>
     </div>
